@@ -1,0 +1,137 @@
+/* --- CSS Variables for consistency --- */
+:root {
+    --primary-color: #007bff;     /* Blue */
+    --accent-color: #ffc107;      /* Gold/Yellow for stars */
+    --bg-light: rgb(187, 201, 207); /* 🎨 NEW BACKGROUND COLOR */
+    --card-bg: #ffffff;           /* White card background */
+    --shadow-base: 0 4px 15px rgba(0, 0, 0, 0.05);
+    --border-radius-lg: 12px;
+}
+
+/* --- SECTION STYLES --- */
+.testimonials-section {
+    padding: 60px 20px;
+    /* Uses the new background color */
+    background-color: var(--bg-light); 
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 40px;
+    font-weight: 700;
+}
+
+/* --- REVIEW GRID (Unique Style: CSS Grid) --- */
+.review-grid {
+    display: grid;
+    /* Default: 1 column on small screens */
+    grid-template-columns: 1fr; 
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* --- REVIEW CARD (Unique Card Look) --- */
+.review-card {
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: var(--border-radius-lg);
+    text-align: left;
+    box-shadow: var(--shadow-base);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    position: relative;
+    /* Unique color accent line */
+    border-top: 5px solid var(--primary-color); 
+}
+
+.review-card:hover {
+    transform: translateY(-5px); /* Subtle lift on hover */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+/* --- REACT ICONS STYLES --- */
+.star-rating {
+    display: flex;
+    gap: 2px;
+}
+
+.star-icon {
+    /* Gold color for high visibility */
+    color: var(--accent-color); 
+    font-size: 1.1rem;
+}
+
+.quote-icon {
+    color: var(--primary-color);
+    font-size: 2rem;
+    /* Subtle background quote icon */
+    opacity: 0.15; 
+    position: absolute;
+    top: 15px;
+    right: 20px;
+}
+
+.review-text {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #495057;
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.review-author {
+    display: flex;
+    flex-direction: column;
+    padding-top: 15px;
+    border-top: 1px dashed #e9ecef;
+}
+
+.author-name {
+    font-weight: 600;
+    color: var(--primary-color);
+    font-size: 1rem;
+}
+
+.author-city {
+    font-size: 0.85rem;
+    color: #6c757d;
+    margin-top: 3px;
+}
+
+
+/* -------------------------------------------
+ * MEDIA QUERIES (Responsiveness)
+ * ------------------------------------------- */
+
+/* Tablet (>= 768px) */
+@media (min-width: 768px) {
+    .review-grid {
+        /* 2 columns on tablet */
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .section-title {
+        font-size: 2.5rem;
+    }
+}
+
+/* Desktop (>= 1024px) */
+@media (min-width: 1024px) {
+    .review-grid {
+        /* 4 columns on large desktop, matching the 4 defined reviews */
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .testimonials-section {
+        padding: 80px 20px;
+    }
+}

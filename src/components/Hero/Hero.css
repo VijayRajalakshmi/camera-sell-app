@@ -1,0 +1,234 @@
+/* --- Hero.css --- */
+
+/* 1. HERO SECTION (Main Container) */
+.hero-section {
+    position: relative; /* Context for absolute positioning of overlay */
+    width: 100%;
+    /* Define a fixed height for monitor view, or use a responsive height like 65vh */
+    height: 70vh; 
+    min-height: 450px; /* Minimum height for small screens */
+    overflow: hidden;
+}
+
+/* 2. SWIPER & BACKGROUND (Ensuring Full Cover) */
+.hero-swiper {
+    width: 100%;
+    height: 100%;
+}
+
+.hero-bg {
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: cover; /* ESSENTIAL: Ensures the image covers the entire container */
+    background-repeat: no-repeat;
+    /* Optional: Add a dark overlay for contrast against the text */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.hero-bg::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Dark overlay for better text readability */
+    z-index: 2;
+}
+
+
+/* 3. CONTENT OVERLAY (CTA Focus) */
+.hero-content-overlay-cta {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10; /* Bring above the overlay */
+    text-align: center;
+    max-width: 600px;
+    width: 90%;
+}
+
+.sub-headline {
+    color: white;
+    font-size: 1.4rem;
+    font-weight: 500;
+    margin-bottom: 20px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* 4. CTA Search Box (The Form) */
+.cta-search-box {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 25px 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+}
+
+.cta-search-box form {
+    display: flex;
+    gap: 10px;
+}
+
+.cta-search-box input {
+    flex-grow: 1;
+    padding: 15px 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.cta-search-box input:focus {
+    border-color: #007bff;
+}
+
+.cta-button {
+    background-color: #ff4500; /* Vibrant Orange/Red for CTA */
+    color: white;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+    white-space: nowrap; /* Prevents button text from wrapping */
+}
+
+.cta-button:hover {
+    background-color: #e63e00;
+}
+
+/* Trust Badges below the form */
+.trust-badges {
+    margin-top: 15px;
+    font-size: 0.9rem;
+    color: #444;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* 5. H1 Headline (Below Hero) */
+.h1-below-hero {
+    background-color: #f0f8ff; /* Lightest blue background */
+    padding: 10px 20px;
+    text-align: center;
+    overflow: hidden;
+    opacity: 0;
+    transition: opacity 0.5s ease-in, transform 0.5s ease-in;
+    transform: translateY(10px);
+}
+
+.h1-below-hero.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.main-headline-below {
+    font-size: 1.8rem;
+    color: #001f3f;
+    margin: 0;
+    font-weight: 700;
+}
+
+/* 6. FEATURE BAR (Below H1) */
+.hero-features-bar {
+    background-color: #007bff; /* Primary Brand Color */
+    color: white;
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.feature-item {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.feature-icon {
+    font-size: 1.5rem;
+    line-height: 1;
+}
+
+.feature-item p {
+    margin: 0;
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+
+/* 7. SEO Content Section */
+.hero-seo-content {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+    line-height: 1.6;
+    color: #555;
+}
+
+.hero-seo-content h2 {
+    text-align: center;
+    color: #001f3f;
+    margin-bottom: 20px;
+    font-size: 1.6rem;
+}
+
+/* --- Media Queries for Responsiveness --- */
+
+/* Tablet (Up to 900px) */
+@media (max-width: 900px) {
+    .hero-section {
+        height: 60vh;
+    }
+    .cta-search-box form {
+        flex-direction: column;
+    }
+    .cta-button {
+        width: 100%;
+    }
+    .hero-features-bar {
+        gap: 20px 30px;
+        padding: 15px 10px;
+    }
+}
+
+/* Mobile (Up to 600px) */
+@media (max-width: 600px) {
+    .hero-section {
+        height: 50vh;
+        min-height: 350px;
+    }
+    .sub-headline {
+        font-size: 1.1rem;
+    }
+    .cta-search-box {
+        padding: 20px 15px;
+    }
+    .cta-search-box input, .cta-button {
+        padding: 12px 15px;
+        font-size: 0.95rem;
+    }
+    .main-headline-below {
+        font-size: 1.2rem;
+    }
+    .hero-features-bar {
+        padding: 10px 0;
+    }
+    .feature-item {
+        flex-basis: 40%; /* Two items per row */
+        justify-content: center;
+    }
+}

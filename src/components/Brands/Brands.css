@@ -1,0 +1,106 @@
+/* --- CSS Variables for consistency --- */
+:root {
+    --primary-color: #007bff;
+    --bg-white: #ffffff;
+    --border-color: #e9ecef;
+    --card-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* --- SECTION STYLES --- */
+.brands-section {
+    padding: 60px 20px;
+    background-color: var(--bg-white);
+    text-align: center;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.section-title {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 40px;
+    font-weight: 600;
+}
+
+/* --- SWIPER CONTAINER STYLES --- */
+.brand-swiper-container {
+    padding-bottom: 40px;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.brand-swiper-container .swiper-pagination-bullet-active {
+    background: var(--primary-color);
+}
+
+
+/* --- BRAND SLIDE & IMAGE STYLES --- */
+.brand-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 140px; 
+    padding: 5px; 
+}
+
+/* Card Wrapper for 3D Effect */
+.brand-card-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-white);
+    border-radius: 8px;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    cursor: pointer;
+    perspective: 1000px;
+}
+
+/* Hover Effect: Grayscale to Color + 3D Lift */
+.brand-slide:hover .brand-card-wrapper {
+    transform: translateY(-5px) rotateX(1deg); 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); 
+}
+
+.brand-logo-image {
+    max-width: 90%;
+    max-height: 100px; 
+    display: block;
+    object-fit: contain;
+    
+    /* Grayscale Effect */
+    filter: grayscale(100%);
+    opacity: 0.7;
+    transition: filter 0.5s ease-in-out, opacity 0.5s;
+}
+
+/* Active or Hovered State */
+.brand-slide:hover .brand-logo-image,
+.brand-swiper-container .swiper-slide-active .brand-logo-image {
+    filter: grayscale(0%); 
+    opacity: 1;
+}
+
+
+/* -------------------------------------------
+ * MEDIA QUERIES
+ * ------------------------------------------- */
+
+/* Mobile adjustments (up to 639px) */
+@media (max-width: 639px) {
+    .brand-slide {
+        height: 100px; 
+    }
+
+    .brand-logo-image {
+        max-height: 80px;
+    }
+
+    /* Disable 3D effect on mobile for better performance */
+    .brand-slide:hover .brand-card-wrapper {
+        transform: none;
+        box-shadow: var(--card-shadow);
+    }
+}

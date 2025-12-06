@@ -1,0 +1,163 @@
+/* --- CSS Variables for consistency --- */
+:root {
+    --primary-color: #007bff; /* Blue */
+    --accent-color: #ffc107;  /* Gold/Yellow */
+    --bg-neutral: #f8f9fa;    /* Light gray background */
+    --card-bg: #ffffff;
+    --shadow-light: 0 6px 20px rgba(0, 0, 0, 0.08);
+    --border-radius-base: 10px;
+}
+
+/* --- SECTION STYLES --- */
+.how-it-works-section {
+    padding: 80px 20px;
+    background-color: var(--bg-neutral);
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 50px;
+    font-weight: 700;
+}
+
+/* --- STEPS CONTAINER (The Flow Layout) --- */
+.steps-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Aligns content from the top */
+    gap: 0; /* Remove gap, separators handle spacing */
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+/* --- STEP BOX (Individual Card Styles) --- */
+.step-box {
+    background: var(--card-bg);
+    padding: 30px 20px;
+    border-radius: var(--border-radius-base);
+    box-shadow: var(--shadow-light);
+    flex: 1; /* Equal width distribution */
+    min-width: 200px;
+    transition: transform 0.3s ease-in-out;
+    text-align: center;
+}
+
+.step-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.icon-wrapper {
+    background-color: var(--primary-color);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 15px auto;
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.5); /* Blue glow */
+}
+
+.step-icon {
+    color: var(--text-color-light); /* White/Light icon */
+    font-size: 1.8rem;
+}
+
+.step-number {
+    font-size: 0.85rem;
+    color: var(--accent-color);
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.step-box h3 {
+    font-size: 1.25rem;
+    color: var(--text-color-dark);
+    margin-bottom: 10px;
+}
+
+.step-box p {
+    font-size: 0.95rem;
+    color: #6c757d;
+}
+
+/* --- STEP SEPARATOR (The Unique Timeline/Flow Bit) --- */
+.step-separator {
+    position: relative;
+    width: 60px; /* Width of the arrow space */
+    height: 100px; /* Arbitrary height to center the arrow */
+    margin: 0 -10px; /* Slight overlap with cards */
+    display: flex;
+    align-items: center;
+}
+
+.step-separator::after {
+    content: '';
+    width: 0;
+    height: 0;
+    /* Creates a right-facing triangle (arrow) */
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-left: 15px solid var(--primary-color);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0.7;
+}
+
+/* -------------------------------------------
+ * MEDIA QUERIES (Mobile to Stacked Layout)
+ * ------------------------------------------- */
+
+@media (max-width: 1024px) {
+    /* Stack the elements vertically on smaller screens */
+    .steps-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .step-box {
+        width: 100%;
+        max-width: 400px;
+        margin-bottom: 20px;
+        text-align: left;
+    }
+    
+    .icon-wrapper {
+        margin: 0 20px 0 0;
+        float: left; /* Aligns icon left on stacked view */
+    }
+    
+    .step-separator {
+        width: 0; /* No horizontal space needed */
+        height: 40px; /* Vertical space between steps */
+        margin: 0;
+        position: relative;
+    }
+    
+    .step-separator::after {
+        /* Change arrow direction to down-facing vertical line */
+        content: '';
+        width: 3px;
+        height: 100%; /* Line length */
+        border: none;
+        background-color: var(--primary-color);
+        border-radius: 5px;
+        left: 50%;
+        top: 0;
+        transform: translateX(-50%);
+    }
+}
+
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 2rem;
+    }
+    .testimonials-section {
+        padding: 40px 10px;
+    }
+}
