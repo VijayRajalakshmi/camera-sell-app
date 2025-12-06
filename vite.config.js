@@ -3,6 +3,6 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
-  // Must match the repository name
+  // 🎯 CRITICAL: This base path MUST match your repository name.
   base: '/camera-sell-app/', 
 });
