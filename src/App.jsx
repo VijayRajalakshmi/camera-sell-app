@@ -23,27 +23,28 @@ import AboutUs from "./components/AboutUs/AboutUs";
 
 // A component to hold all the content that appears ONLY on the main page ("/")
 const HomePageContent = () => (
-  <>
-    <Hero />
-    <Category />
-    <HowItWorks />
-    <Brands />
-    <Testimonials />
-  </>
+ <>
+  <Hero />
+  <Category />
+  <HowItWorks />
+  <Brands />
+  <Testimonials />
+ </>
 );
 
 export default function App() {
-  return (
-    <Router>
-      <Header /> 
-      <Routes>
-        <Route path="/" element={<HomePageContent />} />
-        <Route path="/contact" element={<ContactForm />} /> 
-        <Route path="/faq" element={<FAQPage />} /> 
-        {/* 🎯 New About Us Route Added */}
-        <Route path="/about" element={<AboutUs />} /> 
-      </Routes>
-      <Footer />
-    </Router>
-  );
+ return (
+    // 🎯 FIX: Added the basename prop, which is essential for GitHub Pages (subdirectory hosting)
+  <Router basename="/camera-sell-app">
+   <Header /> 
+   <Routes>
+    <Route path="/" element={<HomePageContent />} />
+    <Route path="/contact" element={<ContactForm />} /> 
+    <Route path="/faq" element={<FAQPage />} /> 
+    {/* 🎯 New About Us Route Added */}
+    <Route path="/about" element={<AboutUs />} /> 
+   </Routes>
+   <Footer />
+  </Router>
+ );
 }
