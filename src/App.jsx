@@ -1,5 +1,6 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom"; 
+// 🎯 CHANGE: Import HashRouter instead of BrowserRouter
+import { HashRouter as Router, Routes, Route } from "react-router-dom"; 
 
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
@@ -19,28 +20,27 @@ import FAQPage from "./components/FAQPage/FAQPage";
 import AboutUs from "./components/AboutUs/AboutUs"; 
 
 const HomePageContent = () => (
- <>
-  <Hero />
-  <Category />
-  <HowItWorks />
-  <Brands />
-  <Testimonials />
- </>
+<>
+ <Hero />
+ <Category />
+ <HowItWorks />
+ <Brands />
+ <Testimonials />
+</>
 );
 
 export default function App() {
- return (
-    // 🎯 FIX: Added the basename prop, which is essential for GitHub Pages (subdirectory hosting)
-  <Router basename="/camera-sell-app">
-   <Header /> 
-   <Routes>
-    <Route path="/" element={<HomePageContent />} />
-    <Route path="/contact" element={<ContactForm />} /> 
-    <Route path="/faq" element={<FAQPage />} /> 
-    {/* 🎯 New About Us Route Added */}
-    <Route path="/about" element={<AboutUs />} /> 
-   </Routes>
-   <Footer />
-  </Router>
- );
+return (
+    // 🎯 FIX: Changed to HashRouter and REMOVED the basename prop
+ <Router>
+ <Header /> 
+ <Routes>
+  <Route path="/" element={<HomePageContent />} />
+  <Route path="/contact" element={<ContactForm />} /> 
+  <Route path="/faq" element={<FAQPage />} /> 
+  <Route path="/about" element={<AboutUs />} /> 
+ </Routes>
+ <Footer />
+ </Router>
+);
 }
