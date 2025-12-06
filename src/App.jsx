@@ -12,16 +12,12 @@ import HowItWorks from "./components/HowItWorks/HowItWorks";
 import Brands from "./components/Brands/Brands";
 import Testimonials from "./components/Testimonials/Testimonials";
 
-// Import the ContactForm component (assuming consistent casing: ContactForm)
 import ContactForm from "./components/ContactForm/ContactForm"; 
 
-// Import the FAQPage component
 import FAQPage from "./components/FAQPage/FAQPage";
 
-// 🎯 Import the new AboutUs component (assuming the folder is named 'AboutUs')
 import AboutUs from "./components/AboutUs/AboutUs"; 
 
-// A component to hold all the content that appears ONLY on the main page ("/")
 const HomePageContent = () => (
  <>
   <Hero />
