@@ -2,13 +2,13 @@ import React from "react";
 import "./Category.css";
 
 const categories = [
-  { name: "DSLR Cameras", img: "/dslr.png" },
-  { name: "Camera Lenses", img: "/lens.png" },
-  { name: "Laptops", img: "/laptop.png" },
-  { name: "Smartphones", img: "/phone.png" },
-  { name: "Action Cameras", img: "/action.png" },
+ // 🎯 FIX: REMOVE the leading slash (/)
+ { name: "DSLR Cameras", img: "dslr.png" }, 
+ { name: "Camera Lenses", img: "lens.png" },
+ { name: "Laptops", img: "laptop.png" },
+ { name: "Smartphones", img: "phone.png" },
+ { name: "Action Cameras", img: "action.png" },
 ];
-
 export default function Category() {
   return (
     <section className="category">

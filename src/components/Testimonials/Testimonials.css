@@ -12,8 +12,8 @@
 .testimonials-section {
     padding: 60px 20px;
     /* Uses the new background color */
-    background-color: var(--bg-light); 
-    text-align: center;
+/*     background-color: var(--bg-light); 
+ */    text-align: center;
 }
 
 .section-title {
